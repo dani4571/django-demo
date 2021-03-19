@@ -29,3 +29,22 @@ You will need two terminals pointed to the frontend and backend directories to s
 ## Creator Credit
 
 This demo app was originally built for a scotch.io (acquired in 2020 by DigitalOcean) article by [Jordan Irabor](https://github.com/Jordanirabor/django-todo-react)
+
+
+### Docker info 
+
+#### How to run
+* Build frontend ```[docker build -t frontend:latest -f Dockerfile.fe .]```
+* Build backend ```[docker build -t backend:latest -f Dockerfile.be .]```
+* Run from docker-compose ```[docker-compose up]```
+
+#### ToDo
+* Make config work for sqlite or mysql
+* Get command to run manually backend to run manually
+
+
+Sources:
+https://github.com/do-community/django-todo-react.git
+https://blog.ploetzli.ch/2020/efficient-multi-stage-build-django-docker/
+https://packaging.python.org/guides/distributing-packages-using-setuptools/#configuring-your-project
+https://lincolnloop.com/blog/using-setuppy-your-django-project/

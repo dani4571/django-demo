@@ -1,0 +1,26 @@
+FROM centos:8
+
+RUN dnf install -y nodejs
+RUN dnf install -y python3
+
+COPY . /app
+
+WORKDIR /app
+
+
+# Install dependencies for frontend 
+RUN cd frontend && \
+    npm install
+
+# Install dependencies for backend 
+RUN pip3 install pipenv && \
+    ln -s /usr/bin/python3 /usr/bin/python && \
+    pipenv install --system --deploy && \
+    pip3 install django-cors-headers && \
+    pip3 install djangorestframework
+
+
+
+
+# Set user to non-root user
+USER 1001

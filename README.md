@@ -38,7 +38,8 @@ This demo app was originally built for a scotch.io (acquired in 2020 by DigitalO
 * Build backend ```[docker build -t backend:latest -f Dockerfile.be .]```
 * Run from docker-compose ```[docker-compose up]```
 
-#### ToDo
+#### TODO
+* Clean up the backend dockerfile
 * Make config work for sqlite or mysql
 * Get command to run manually backend to run manually
 

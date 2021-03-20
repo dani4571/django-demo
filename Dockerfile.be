@@ -2,6 +2,10 @@
 # Dockerfile
 FROM python:slim as common-base
 
+# TODO: Find better versions
+RUN apt-get update -y && \
+    apt-get install -y libmariadb-dev-compat libmariadb-dev
+
 # ENV DJANGO_SETTINGS_MODULE foo.settings
 FROM common-base as base-builder
 RUN pip install -U pip setuptools
@@ -41,8 +45,8 @@ RUN sh -c 'python manage.py collectstatic --no-input'
 # Stage 5: Install compiled static assets and support files into clean image
 FROM common-base
 RUN mkdir -p /app
-# ENV DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
-ENV DYLD_LIBRARY_PATH="/usr/local/mysql/lib:$PATH"
+# TODO: Try without this
+ENV DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
 COPY backend/docker-entrypoint.sh /app/
 COPY --from=builder /install /usr/local
 COPY --from=static-builder /app/static.dist /app/static.dist

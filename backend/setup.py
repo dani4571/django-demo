@@ -6,5 +6,5 @@ setup(name='django-todo-react',
       version='0.0',
       packages=find_packages(),
       scripts=['manage.py'],
-      install_requires=['django', 'django-cors-headers', 'djangorestframework']
+      install_requires=['django', 'django-cors-headers', 'djangorestframework', 'mysqlclient', 'mysql-client']
      )

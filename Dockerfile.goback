@@ -1,12 +1,10 @@
 from golang:1.16.2-alpine3.13
 
-
 VOLUME /app
 
 COPY goback /app
 WORKDIR /app
 RUN go mod tidy
-
 
 ENV API_KEY=C227WD9W3LUVKVV9
 ENV NDAYS=3
